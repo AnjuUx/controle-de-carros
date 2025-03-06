@@ -7,8 +7,8 @@ const Cars = () => {
     return (
         <StyledSection>
             <Overlay />
-            <Car image={hb20} alt='hb 20' />
-            <Car image={hb20} alt='hb 20' />
+            <Car image={hb20} title='hb 20' />
+            <Car image={hb20} title='hb 20' />
         </StyledSection>
     )
 }

@@ -6,11 +6,13 @@ const StyledButton = styled.button`
     border: none;
     color: ${variables.colors.white};
     border-radius: 15px;
-    padding: 4px 120px;
+    padding: 4px 0;
     font-family: ${variables.fonts.poppins};
     font-weight: 400;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     transition: ease .2s;
+    z-index: 99;
+    width: 350px;
 
     &:hover {
         cursor: pointer;
