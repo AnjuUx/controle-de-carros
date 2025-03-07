@@ -5,7 +5,7 @@ const variables = {
         blue: '#0089FF',
         darkBlue: '#07151C',
         darkestBlue: '#091D26',
-        white: '#FFF',
+        white: '#FFFFFF',
     },
 
     fonts: {
