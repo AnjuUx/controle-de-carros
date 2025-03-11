@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import flex from '@/utils/flex'
 
 const StyledDiv = styled.div`
-    ${flex('column', 'auto', 'auto', '14px')}
+    ${flex('column', 'auto', 'auto', '10px')}
 
     label {
         font-size: 1.25rem;
@@ -25,6 +25,11 @@ const StyledDiv = styled.div`
         &:focus {
             border-color: ${variables.colors.blue};
         }
+    }
+
+    span {
+        font-size: .8rem;
+        color: #ec7a7a;
     }
 `
 
