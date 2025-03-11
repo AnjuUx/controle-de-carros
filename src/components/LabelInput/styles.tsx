@@ -29,7 +29,7 @@ const StyledDiv = styled.div`
 
     span {
         font-size: .8rem;
-        color: #ec7a7a;
+        color: ${variables.colors.lightRed};
     }
 `
 

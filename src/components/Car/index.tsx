@@ -10,9 +10,19 @@ interface CarProps {
     selected: boolean
     select: () => void
     close: () => void
+    buttonText: string
+    usage: boolean
 }
 
-const Car = ({ image, title, selected, select, close }: CarProps) => {
+const Car = ({
+    image,
+    title,
+    selected,
+    select,
+    close,
+    buttonText,
+    usage,
+}: CarProps) => {
     return (
         <StyledDiv style={{ backgroundImage: `url(${image})` }} title={title}>
             {selected ? (
@@ -30,7 +40,14 @@ const Car = ({ image, title, selected, select, close }: CarProps) => {
                 <>
                     <div></div>
                     <div></div>
-                    <Button onClick={() => select()}>Selecionar</Button>
+                    {usage && (
+                        <div className='usage'>
+                            <h2>Pessoa utilizando</h2>
+                            <p>Tempo Estimado 00:35:00</p>
+                        </div>
+                    )}
+
+                    <Button onClick={() => select()}>{buttonText}</Button>
                 </>
             )}
         </StyledDiv>

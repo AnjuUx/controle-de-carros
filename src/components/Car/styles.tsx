@@ -25,6 +25,24 @@ const StyledDiv = styled.div`
             background-color: ${variables.colors.white}29;
         }
     }
+
+    .usage {
+        z-index: 99;
+        margin-bottom: -100px;
+
+        h2 {
+            color: ${variables.colors.white};
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: ${variables.colors.white};
+            font-size: 2rem;
+            font-weight: 600;
+        }
+    }
 `
 
 export default StyledDiv
