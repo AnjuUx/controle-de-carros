@@ -1,8 +1,7 @@
 import LabelInput from '@/components/LabelInput'
-import StyledForm from './styles'
-import Button from '@/components/Button'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import Form from '@/patterns/Form'
 
 const CarForm = () => {
     const [nome, setNome] = useState<string>('')
@@ -30,7 +29,7 @@ const CarForm = () => {
     }
 
     return (
-        <StyledForm>
+        <Form onSubmit={submit} btnContent='Iniciar corrida'>
             <LabelInput
                 label='Nome de usuário'
                 value={nome}
@@ -49,14 +48,9 @@ const CarForm = () => {
                 onChange={(e) => setSenha(e.target.value)}
                 submited={submited}
                 type='password'
-                password={true}
+                passwordLength={true}
             />
-            <div className='button-wrapper'>
-                <Button type='submit' onClick={(e) => submit(e)}>
-                    Iniciar Corrida
-                </Button>
-            </div>
-        </StyledForm>
+        </Form>
     )
 }
 

@@ -1,16 +1,17 @@
 import StyledSection from './styles'
 import Car from '@/components/Car'
 import Overlay from '@/components/Overlay'
-import { useState } from 'react'
+import { ReactElement, useState } from 'react'
 
 interface CarsProps {
     carNames: string[]
     carImages: string[]
     buttonText: string
     usage: boolean
+    form: ReactElement
 }
 
-const Cars = ({ carNames, carImages, buttonText, usage }: CarsProps) => {
+const Cars = ({ carNames, carImages, buttonText, usage, form }: CarsProps) => {
     const [selected, setSelected] = useState<boolean[]>([false, false])
 
     const selectHandle = (car: '1' | '2') => {
@@ -33,6 +34,7 @@ const Cars = ({ carNames, carImages, buttonText, usage }: CarsProps) => {
                 close={() => closeHandle()}
                 buttonText={buttonText}
                 usage={usage}
+                form={form}
             />
             <Car
                 image={carImages[1]}
@@ -42,6 +44,7 @@ const Cars = ({ carNames, carImages, buttonText, usage }: CarsProps) => {
                 close={() => closeHandle()}
                 buttonText={buttonText}
                 usage={usage}
+                form={form}
             />
         </StyledSection>
     )

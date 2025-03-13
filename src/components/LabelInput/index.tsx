@@ -7,22 +7,34 @@ interface InputProps {
     onChange: (e: any) => void
     type?: string
     submited: boolean
-    password?: boolean
+    passwordLength?: boolean
+    validation?: boolean
+    validationTest?: boolean
 }
 
-const LabelInput = ({ label, value, onChange, type, submited, password = false }: InputProps) => {
+const LabelInput = ({ label, value, onChange, type, submited, passwordLength = false, validation = false, validationTest }: InputProps) => {
 
-    const nullErrorDisplay = !password && submited ? value ? 'none' : 'block' : 'none'
-    const passwordErrorDisplay = submited ? value.length < 6 ? 'block' : 'none' : 'none'
+    const nullErrorDisplay = !passwordLength && !validation && submited ? value ? 'none' : 'block' : 'none'
+    const passwordLengthErrorDisplay = submited ? value.length < 6 ? 'block' : 'none' : 'none'
+    const validationTestDisplay = submited ? validationTest ? 'none' : 'block' : 'none'
 
     return (
         <StyledDiv>
             <label htmlFor={label}>{label}</label>
-            <input id={label} value={value} onChange={onChange} type={type}/>
-            <span style={{ display: nullErrorDisplay }}>Preencha este campo</span>
-            {
-                password && <span style={{ display: passwordErrorDisplay }}>A senha está muito curta</span>
-            }
+            <input id={label} value={value} onChange={onChange} type={type} />
+            <span style={{ display: nullErrorDisplay }}>
+                Preencha este campo
+            </span>
+            {passwordLength && (
+                <span style={{ display: passwordLengthErrorDisplay }}>
+                    A senha está muito curta
+                </span>
+            )}
+            {validation && (
+                <span style={{ display: validationTestDisplay }}>
+                    Senha incorreta
+                </span>
+            )}
         </StyledDiv>
     )
 }

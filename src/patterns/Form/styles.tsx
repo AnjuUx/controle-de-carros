@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import flex from "@/utils/flex";
-import variables from "@/variables";
+import styled from 'styled-components'
+import flex from '@/utils/flex'
+import variables from '@/variables'
 
 const StyledForm = styled.form`
     ${flex('column', 'center', 'center', '20px')}
@@ -13,6 +13,6 @@ const StyledForm = styled.form`
     .button-wrapper {
         margin-top: 20px;
     }
-` 
+`
 
 export default StyledForm

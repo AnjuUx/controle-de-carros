@@ -1,8 +1,8 @@
 import variables from '@/variables'
 import Button from '../Button'
-import CarForm from './CarForm'
 import StyledDiv from './styles'
 import { FaArrowLeft } from 'react-icons/fa6'
+import { ReactElement } from 'react'
 
 interface CarProps {
     image: string
@@ -12,6 +12,7 @@ interface CarProps {
     close: () => void
     buttonText: string
     usage: boolean
+    form: ReactElement
 }
 
 const Car = ({
@@ -22,6 +23,8 @@ const Car = ({
     close,
     buttonText,
     usage,
+    form
+
 }: CarProps) => {
     return (
         <StyledDiv style={{ backgroundImage: `url(${image})` }} title={title}>
@@ -34,7 +37,7 @@ const Car = ({
                     >
                         <FaArrowLeft color={variables.colors.blue} size={35} />
                     </button>
-                    <CarForm />
+                    {form}
                 </>
             ) : (
                 <>
