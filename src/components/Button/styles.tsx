@@ -10,13 +10,26 @@ const StyledButton = styled.button`
     font-family: ${variables.fonts.poppins};
     font-weight: 400;
     font-size: 1.3rem;
-    transition: ease .2s;
+    transition: ease 0.2s;
     z-index: 99;
     width: 350px;
 
     &:hover {
         cursor: pointer;
         background-color: ${variables.colors.blue}af;
+    }
+
+    @media screen and (max-width: ${variables.breakpoints.laptop}) {
+        font-size: 1.2rem;
+        width: 320px;
+    }
+    @media screen and (max-width: ${variables.breakpoints.tablet}) {
+        font-size: 1rem;
+        width: 250px;
+    }
+    @media screen and (max-width: ${variables.breakpoints.smallSmartphone}) {
+        font-size: 0.9rem;
+        width: 220px;
     }
 `
 

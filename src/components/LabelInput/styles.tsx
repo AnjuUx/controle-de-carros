@@ -28,8 +28,36 @@ const StyledDiv = styled.div`
     }
 
     span {
-        font-size: .8rem;
+        font-size: 0.8rem;
         color: ${variables.colors.lightRed};
+    }
+
+    @media screen and (max-width: ${variables.breakpoints.laptop}) {
+        input {
+            font-size: 1.6rem;
+        }
+    }
+    @media screen and (max-width: ${variables.breakpoints.tablet}) {
+        label {
+            font-size: 1rem;
+        }
+
+        input {
+            font-size: 1rem;
+        }
+    }
+    @media screen and (max-width: ${variables.breakpoints.smartphone}) {
+        input {
+        }
+    }
+    @media screen and (max-width: ${variables.breakpoints.smallSmartphone}) {
+        label {
+            font-size: .9rem;
+        }
+
+        input {
+            font-size: .9rem;
+        }
     }
 `
 

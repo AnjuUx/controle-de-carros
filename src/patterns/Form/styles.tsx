@@ -13,6 +13,10 @@ const StyledForm = styled.form`
     .button-wrapper {
         margin-top: 20px;
     }
+
+    @media screen and (max-width: ${variables.breakpoints.smartphone}) {
+    
+    }
 `
 
 export default StyledForm

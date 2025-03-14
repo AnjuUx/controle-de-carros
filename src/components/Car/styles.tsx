@@ -2,15 +2,16 @@ import styled from 'styled-components'
 import flex from '@/utils/flex'
 import variables from '@/variables'
 
-const padding = '24px'
+const padding = '20px'
 
 const StyledDiv = styled.div`
     ${flex('column', 'space-around', 'center')}
-    height: calc(100% - ${padding} - ${padding});
     width: 50%;
+    height: calc(100% - ${padding} - ${padding});
     background: center center no-repeat;
     background-size: 100%;
     padding: ${padding};
+    overflow: hidden;
 
     .back {
         background-color: transparent;
@@ -42,6 +43,18 @@ const StyledDiv = styled.div`
             font-size: 2rem;
             font-weight: 600;
         }
+    }
+
+    @media screen and (max-width: ${variables.breakpoints.smartphone}) {
+        width: 80%;
+        background-size: 80%;
+        button {
+            margin-top: 200px;
+        }
+    }
+
+    @media screen and (max-width: ${variables.breakpoints.smallSmartphone}) {
+        width: calc(100% - ${padding} - ${padding});
     }
 `
 

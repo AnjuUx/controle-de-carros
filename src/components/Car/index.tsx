@@ -23,8 +23,7 @@ const Car = ({
     close,
     buttonText,
     usage,
-    form
-
+    form,
 }: CarProps) => {
     return (
         <StyledDiv style={{ backgroundImage: `url(${image})` }} title={title}>
