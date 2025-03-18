@@ -45,16 +45,56 @@ const StyledDiv = styled.div`
         }
     }
 
+    @media screen and (max-width: ${variables.breakpoints.laptop}) {
+        .usage {
+            h2 {
+                font-size: 2.5rem;
+            }
+            p {
+                font-size: 1.7rem;
+            }
+        }
+    }
+
+    @media screen and (max-width: ${variables.breakpoints.tablet}) {
+        .usage {
+            h2 {
+                font-size: 2rem;
+            }
+            p {
+                font-size: 1.5rem;
+            }
+        }
+    }
+
     @media screen and (max-width: ${variables.breakpoints.smartphone}) {
         width: 80%;
         background-size: 80%;
-        button {
-            margin-top: 200px;
+
+        .usage {
+            margin-bottom: auto;
+
+            h2 {
+                font-size: 1.5rem;
+            }
+            p {
+                font-size: 1rem;
+            }
         }
     }
 
     @media screen and (max-width: ${variables.breakpoints.smallSmartphone}) {
         width: calc(100% - ${padding} - ${padding});
+
+        .usage {
+
+            h2 {
+                font-size: 1.3rem;
+            }
+            p {
+                font-size: .9rem;
+            }
+        }
     }
 `
 

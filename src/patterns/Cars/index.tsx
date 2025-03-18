@@ -1,7 +1,7 @@
 import StyledSection from './styles'
 import Car from '@/components/Car'
 import Overlay from '@/components/Overlay'
-import { ReactElement, useEffect, useState } from 'react'
+import { ReactElement, useState } from 'react'
 import variables from '@/variables'
 
 interface CarsProps {
@@ -13,19 +13,32 @@ interface CarsProps {
 }
 
 const Cars = ({ carNames, carImages, buttonText, usage, form }: CarsProps) => {
+    // states utilizados no componente
     const [selected, setSelected] = useState<boolean[]>([false, false])
     const [smartphone, setSmartphone] = useState<boolean>(false)
 
+    // transforma o breakpoint do celular (definido no arquivo de variáveis) em um número que possa ser colocado em
+    // uma condicional
     const smartphoneBreakpoint = Number(
         variables.breakpoints.smartphone.slice(0, 3)
     )
-    const isASmartphone = window.screen.width <= smartphoneBreakpoint
 
-    useEffect(() => {
-        if (isASmartphone) setSmartphone(true)
-        if (!isASmartphone) setSmartphone(false)
-    }, [isASmartphone])
+    // tamanho da tela atual
+    const windowWidth = window.screen.width
 
+    // verifica se o tamanho da tela atual é menor que o breakpoint de smartphone
+    const isASmartphone = windowWidth <= smartphoneBreakpoint
+
+    // fecha o formulário ao mudar o tamnho da tela para não ocasionar problemas no layout
+    window.addEventListener('resize', () => {
+        if (selected[0] || selected[1]) {
+            setSmartphone(false)
+            setSelected([false, false])
+        }
+    })
+
+    // alterna entre os formulários, de acordo com a seleção do usuário
+    // muda também o state smartphone, de acordo com o tamanho da tela
     const selectHandle = (car: '1' | '2') => {
         if (isASmartphone) setSmartphone(true)
         if (!isASmartphone) setSmartphone(false)
@@ -33,6 +46,7 @@ const Cars = ({ carNames, carImages, buttonText, usage, form }: CarsProps) => {
         if (car === '2') setSelected([false, true])
     }
 
+    // fecha o formulário que está aberto
     const closeHandle = () => {
         setSelected([false, false])
         setSmartphone(false)
@@ -41,6 +55,9 @@ const Cars = ({ carNames, carImages, buttonText, usage, form }: CarsProps) => {
     return (
         <StyledSection>
             <Overlay />
+            {/* verifica se é um smartphone e se não está selecionado
+                caso esteja selecionado, o outro carro irá desaparecer até o usuário fechar esse formulário em aberto
+            */}
             {smartphone && !selected[0] ? (
                 ''
             ) : (

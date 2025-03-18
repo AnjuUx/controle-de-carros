@@ -15,7 +15,7 @@ const StyledForm = styled.form`
     }
 
     @media screen and (max-width: ${variables.breakpoints.smartphone}) {
-    
+        
     }
 `
 
