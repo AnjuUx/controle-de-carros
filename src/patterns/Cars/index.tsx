@@ -29,9 +29,13 @@ const Cars = ({ carNames, carImages, buttonText, usage, form }: CarsProps) => {
     // verifica se o tamanho da tela atual é menor que o breakpoint de smartphone
     const isASmartphone = windowWidth <= smartphoneBreakpoint
 
-    // fecha o formulário ao mudar o tamnho da tela para não ocasionar problemas no layout
+    // width antes do resize
+    let prev = window.innerWidth
+
+    // fecha o formulário ao mudar o tamnho da tela (horizontalmente) para não ocasionar problemas no layout
     window.addEventListener('resize', () => {
-        if (selected[0] || selected[1]) {
+        if ((selected[0] || selected[1]) && prev != window.innerWidth) {
+            prev = window.innerWidth
             setSmartphone(false)
             setSelected([false, false])
         }
